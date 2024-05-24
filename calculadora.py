@@ -1,15 +1,7 @@
-
 '''
-Enunciado
-Hacer una calculadora. Para ello el programa iniciará y contará con un menú de opciones:
 1. Ingresar 1er operando (A=x)
 2. Ingresar 2do operando (B=y)
 3. Calcular todas las operaciones
-    a) Calcular la suma (A+B)
-    b) Calcular la resta (A-B)
-    c) Calcular la división(A/B)
-    d) Calcular la multiplicación(A*B)
-    e) Calcular factorial(A!)
 4. Informar resultados
     a) “El resultado de A+B es: r”
     b) “El resultado de A-B es: r”
@@ -25,3 +17,33 @@ se debe mostrar el número cargado)
 • Documentar todas las funciones
 '''
 
+from funciones import *
+
+#----------------------------------------------------
+
+A = None
+B = None
+
+while True: 
+    limpiar_pantalla()
+    match menu():
+        case "1": 
+            A = (ingreso_operandos("primer"))
+            print(f"A = {A}")
+        case "2":
+            B = (ingreso_operandos("segundo"))
+            print(f"B = {B}")
+        case "3":
+            try:
+                calcular_operaciones(A, B)
+                print("Operaciones calculadas con éxito.")
+            except ValueError as e:
+                print(e)
+        case "4":
+            print("D")
+        case "5":
+            print("\n¡Hasta luego! 👋 \n" )
+            break
+        case _:
+            print("Opción invalida. Reingrese su opción (1-5)")
+    pausa()
