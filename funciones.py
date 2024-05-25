@@ -10,7 +10,7 @@ def suma(a: int, b: int)-> int:
     Returns:
         int: Resultado de la suma 
     """
-    return a + b
+    return a + b 
 
 def resta(a: int, b: int)-> int:
     """Resta dos numeros enteros
@@ -34,11 +34,11 @@ def division(a: int, b: int)-> float:
     Returns:
         float: Resultado de la división.
     """
-    try:
-        return a / b
-    except ZeroDivisionError:
-        raise ZeroDivisionError ("Error. No se puede dividir por cero")
-    
+    resultado = None
+    if b != 0:
+        resultado = a/b 
+    return resultado
+
 def multiplicacion(a:int, b:int)-> int:
     """Multiplica dos números
 
@@ -114,17 +114,18 @@ def ingreso_operandos(orden: str)-> int:
 def validar_existencia_operandos(a, b: int)-> bool:
     validacion = (a != None and b != None)
     return validacion
-        
-def calcular_operaciones(a, b: int)-> None:
-    if not validar_existencia_operandos(a, b):
-        raise ValueError("No se ingresaron los operandos necesarios para realizar las operaciones. Por favor, reingrese los operandos.")
-
-    suma(a, b)
-    resta(a, b)
-    division(a, b)
-    multiplicacion(a, b)
-    factorial(a)
-    factorial(b)
     
+def informar_operaciones(a, b: int, suma, resta, multiplicacion, division, factorial_a, factorial_b):
+    print(f"El resultado de {a}+{b} es: {suma} \n"
+          f"El resultado de {a}-{b} es: {resta} \n"
+          f"El resultado de {a}*{b} es: {multiplicacion} \n"
+          f"El factorial de {a} es: {factorial_a} y El factorial de {b} es: {factorial_b}")
+    if division != None:
+        print(f"El resultado de {a}/{b} es: {division}")
+    else:
+        print("No se puede dividir por cero")
+
+
+
 
 
